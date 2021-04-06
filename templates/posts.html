@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+
+
+
+{%block head%}
+    <title>
+        Posts
+    </title>
+{%endblock%}
+
+
+
+
+
+
+{%block body%}
+
+
+<!-------------------------------------------------------ALL POSTS------------------------------------------------------------------------------------------------>
+
+       <br>
+        <div>
+            <h1 style="display:inline">
+        <b>
+          All Posts
+        </b>
+            <a style="float:right" class = 'btn btn-success '  margin="right" href="/posts/new" >Add Post </a>
+             </h1>
+        </div>
+    <br>
+    <hr>
+    <br>
+
+    {% for post in posts %}
+
+        <h3> {{ post.title }} </h3>
+
+        {% if post.author %}
+            <small> Written by : {{post.author}} on {{post.date_posted}}  </small>
+        {% else %}
+            <small> Written By : a Legend on {{post.date_posted}} </small>
+        {% endif %}
+        <br>
+        <br>
+
+        <p style = 'white-space:pre-wrap'> {{ post.content }}</p>
+        <a class = 'btn btn-danger' href = '/posts/delete/{{post.id}}'>   Delete   </a>
+        &nbsp &nbsp
+        <a class = 'btn btn-primary' href = '/posts/edit/{{post.id}}'>   Edit   </a>
+        <br>
+        <br>
+        <br>
+    {% endfor %}
+
+{% endblock %}

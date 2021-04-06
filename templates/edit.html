@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{%block head%}
+    <title>
+        Editing Posts
+    </title>
+{%endblock%}
+
+{%block body%}
+
+<hr>
+
+<h2><b> Create New Blog Post: </b> </h2>
+<br>
+    <form action = '/posts/edit/{{post.id}}' method = 'POST'>
+         <label for="title">Title:</label>
+        <br>
+
+                <input class="form-control" type="text"  name = 'title', id = 'title' value = '{{post.title}}' aria-label="Enter a title">
+        <br>
+        <br>
+
+         <label for="author">Author :</label>
+        <br>
+               <input class="form-control" type="text"  name = 'author', id = 'author' value = '{{post.author}}' aria-label="Enter your name">
+
+        <br>
+        <br>
+         <label for="content">Post :</label>
+        <br>
+                <div class="form-floating">
+                  <textarea class="form-control"  id="content"  name = 'content' aria-label="Type your text here" style="height: 100px">{{post.content}}</textarea>
+                     <label for="content">Your text</label>
+                </div>
+
+        <br>
+        <br>
+
+        <input class = 'btn btn-success' type = 'submit', value = '   Save   '>
+        <br><br>
+    </form>
+<hr>
+<br>
+
+
+{% endblock %}

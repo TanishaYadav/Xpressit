@@ -1,0 +1,26 @@
+To install flask
+    M-1:
+        pip install Flask
+    M-2:
+        File --> Settings --> Python Interpreter --> + --> Flask --> install
+
+
+To install SQLAlchemy
+    pip install flask-sqlalchemy
+
+
+To make database file in the same directory as trying.py
+    Write this in terminal
+    - Reach the directory trying.py (by default)
+    - python
+    - from trying import db    # filename.py         database object name  imports database
+    - db.create_all()           # creates the database file in the directory as per model specifications specified
+    - from trying import BlogPost        # import model
+
+Entering data in the database through terminal
+    - from trying import BlogPost
+    - db.add.session(BlogPost(title = 'title 1', author = 'tani', content = 'lalalalala   lalalalal ...'))
+    - db.add.session(BlogPost(title = 'title 2', author = 'tani', content = 'nananan ananana  ...'))
+    - BlogPost.query.all()                   # shows list of all title in the database
+    - BlogPost.query.all()[1].content
+    -
